@@ -6,6 +6,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 @Configuration
 @ComponentScan
@@ -20,7 +21,7 @@ public class Application {
 @RestController
 class Controller {
 	@RequestMapping(value="/")
-	public String index() {
-		return "Hello";
+	public ModelAndView index() {
+		return new ModelAndView("index");
 	}
 }
