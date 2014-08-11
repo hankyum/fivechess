@@ -1,0 +1,334 @@
+/* 
+Document   : chess
+Created on : Nov 25, 2010, 4:55:44 PM
+Author     : hank.guo
+Description:
+Purpose of the stylesheet follows.
+*/
+
+/* 
+TODO customize this sample style
+Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+* {
+    margin: 0;
+    padding:0;
+}
+
+._body {
+    text-align:center;
+    background-image: url(../img/zrls_002020.jpg);
+}
+
+* {
+    text-align:left;
+}
+
+._container {
+    margin:0 auto;
+    width:1074px;
+}
+
+._container ._header {
+    height:100px;
+    margin-bottom:5px;
+}
+
+._header h2 {
+    vertical-align:middle;
+    line-height:80px;
+}
+
+._container ._mainContent {
+    margin-bottom:5px;
+    height:720px;
+}
+
+._container ._footer {
+    height:40px;
+}
+
+._container ._mainContent ._leftZone {
+    float:left;
+    width:200px;
+    height:700px;
+    margin:0;
+    padding:0;
+}
+
+._container ._mainContent ._rightZone {
+    margin:0;
+    padding-left:10px;
+    float:right;
+    height:700px;
+    width:864px;
+}
+
+#rooms {
+    margin:0;
+    padding:0;
+    height:690px;
+}
+
+#rooms .addArea {
+    height:60px;
+    position: relative;
+    top:20px;
+}
+
+#rooms .addArea textarea{
+    height:40px;
+    width:200px;
+}
+
+#rooms #roomsList {
+    height:400px;
+    overflow:auto;
+    list-style:none;
+    position: relative;
+    margin-top:30px;
+}
+
+#rooms #roomsList li {
+    height: 25px;
+}
+
+#rooms #roomsList li a {
+    float:left;
+
+}
+
+#messages {
+    float:left;
+    width: 200px;
+    height:690px;
+}
+
+#messages ul {
+    height:585px;
+}
+
+#messages ul li .firstLine {
+    font-size:14px;
+    color:blue;
+}
+
+#messages ul li .secondLine {
+    background-color:silver;
+    overflow:hidden;
+    width:195px;
+    padding-left:5px;
+    padding-right:5px;
+    word-wrap:break-word;
+    word-break:break-all;
+}
+
+#messages .messageInput {
+    width: 200px;
+    height:80px;
+}
+
+#messages .messageInput textarea {
+    width:198px;
+    height:80px;
+}
+
+.buttons {
+    float:right;
+    text-align:right;
+}
+
+#chessPlayRoom {
+    float:right;
+    top:0;
+}
+
+#info {
+    border: none;
+    height:40px;
+}
+
+#qiju {
+    margin-top:10px;
+    position: relative;
+    margin-bottom:0;
+    padding-bottom:0;
+}
+
+
+input[type='button'] {
+    background-image:url(http://preview.zcool.com.cn/png_download/042/botton_005.gif);
+    background-attachment:fixed;
+}
+
+.highLight {
+    display:inline;
+    color:red;
+}
+
+.chessBackground {
+    border:none;
+    border-color:#4C5720;
+    background-color:#BCCD76;
+    position: absolute;
+    z-index: 1;
+    left: 0;
+    top: 0;
+}
+
+.chessContainer {
+    border: none;
+    position: absolute;
+    z-index: 100;
+}
+
+.chessBackground span {
+    border: none;
+    float: left;
+    display: inline;
+    border-color:#4C5720;
+}
+
+.chessContainer span {
+    border: none;
+    display: inline;
+    float: left;
+}
+
+.bodyBackground {
+    position:fixed;
+    width:100%;
+    height:100%;
+    z-index:-1000;
+    left:0;
+    top:0;
+}
+
+.white {
+    background-image: url(../img/BW.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border:none;
+    display:inline;
+}
+
+.black {
+    background-image: url(../img/BB.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    border:none;
+    display:inline;
+}
+
+.cubicStyleBlue {
+    background-image:url(../img/tetris/blue.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.cubicStylePurple {
+    background-image:url(../img/tetris/zi.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.cubicStyleYellow {
+    background-image:url(../img/tetris/yellow.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.cubicStylePink {
+    background-image:url(../img/tetris/pink.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.cubicStyleGreen {
+    background-image:url(../img/tetris/green.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.noborder {
+    border:none;
+}
+
+.hidden {
+    display:none;
+}
+
+/*---circle one---*/
+.raised {
+    background:transparent;
+    width:40%;
+}
+.raised h1,.raised p{
+    margin:0 10px;
+}
+.raised h1{
+    font-size:2em;color:#fff;
+}
+.raised p{
+    padding-bottom:0.5em;
+}
+.raised .b1,.raised .b2,.raised .b3,.raised .b4,.raised .b1b,.raised .b2b,.raised .b3b,.raised .b4b{
+    display:block;
+    overflow:hidden;
+    font-size:1px;
+}
+.raised .b1,.raised .b2,.raised .b3,.raised .b1b,.raised .b2b,.raised .b3b{
+    height:1px;
+}
+.raised .b2{
+    background:#ccc;
+    border-left:1px solid #fff;
+    border-right:1px solid #eee;
+}
+.raised .b3{
+    background:#ccc;
+    border-left:1px solid #fff;
+    border-right:1px solid #ddd;
+}
+.raised .b4{
+    background:#ccc;
+    border-left:1px solid #fff;
+    border-right:1px solid #aaa;
+}
+.raised .b4b{
+    background:#ccc;
+    border-left:1px solid #eee;
+    border-right:1px solid #999;
+}
+.raised .b3b{
+    background:#ccc;
+    border-left:1px solid #ddd;
+    border-right:1px solid #999;
+}
+.raised .b2b{
+    background:#ccc;
+    border-left:1px solid #aaa;
+    border-right:1px solid #999;
+}
+.raised .b1{
+    margin:0 5px;
+    background:#fff;
+}
+.raised .b2, .raised .b2b{
+    margin:0 3px;
+    border-width:0 2px;
+}
+.raised .b3, .raised .b3b{
+    margin:0 2px;
+}
+.raised .b4, .raised .b4b{
+    height:2px; margin:0 1px;
+}
+.raised .b1b{
+    margin:0 5px; background:#999;
+}
+.raised .boxcontent{
+    display:block;
+    background:#ccc;
+}
