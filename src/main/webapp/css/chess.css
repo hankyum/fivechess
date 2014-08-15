@@ -27,7 +27,7 @@ Syntax recommendation http://www.w3.org/TR/REC-CSS2/
 
 ._container {
     margin:0 auto;
-    width:1074px;
+    width:1084px;
 }
 
 ._container ._header {
@@ -42,7 +42,7 @@ Syntax recommendation http://www.w3.org/TR/REC-CSS2/
 
 ._container ._mainContent {
     margin-bottom:5px;
-    height:720px;
+    height:820px;
 }
 
 ._container ._footer {
@@ -59,10 +59,9 @@ Syntax recommendation http://www.w3.org/TR/REC-CSS2/
 
 ._container ._mainContent ._rightZone {
     margin:0;
-    padding-left:10px;
     float:right;
     height:700px;
-    width:864px;
+    width:860px;
 }
 
 #rooms {
@@ -170,7 +169,7 @@ input[type='button'] {
 .chessBackground {
     border:none;
     border-color:#4C5720;
-    background-color:#BCCD76;
+    background-color:wheat;
     position: absolute;
     z-index: 1;
     left: 0;
@@ -186,13 +185,11 @@ input[type='button'] {
 .chessBackground span {
     border: none;
     float: left;
-    display: inline;
     border-color:#4C5720;
 }
 
 .chessContainer span {
     border: none;
-    display: inline;
     float: left;
 }
 

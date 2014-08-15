@@ -1,300 +1,226 @@
 package demo;
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
-import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.HashSet;
-import java.util.Hashtable;
 import java.util.List;
 import java.util.Vector;
 import java.util.WeakHashMap;
 
-/**
- *
- * @author hguo
- */
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class FiveChessRoom {
-    // The one who can play next
+	private static Logger logger = LoggerFactory.getLogger(FiveChessRoom.class);
+	private String num;
+	private Role nextPlayer = Role.getDefault();
+	private List<Step> steps = new Vector<Step>();
+	private Collection<Role> replayers = new HashSet<Role>(2);
+	private WeakHashMap<Role, HashSet<Message>> messageMap = new WeakHashMap<Role, HashSet<Message>>();
+	private Player playerA;
+	private Player playerB;
+	
+	public FiveChessRoom() {
+		this(null);
+	}
 
-    private Player nextPlayer = Player.white;
-    // Each step made my palyer
-    private List<Step> steps = new Vector<Step>();
-    // who are playing session_id => player
-    private Hashtable<String, Player> livePlayersMap = new Hashtable<String, Player>();
-    // Who request to replay
-    private List<Player> replayers = new ArrayList<Player>(2);
+	public FiveChessRoom(String roomNum) {
+		setNum(roomNum);
+		messageMap.put(Role.black, new HashSet<Message>());
+		messageMap.put(Role.white, new HashSet<Message>());
+	}
+	
+	public synchronized void addPlayer(Player player) {
+		if (getPlayerA() == null) {
+			setPlayerA(player);
+		} else if (getPlayerB() == null) {
+			player.setRole(Role.chooseOpponent(getPlayerA().getRole()));
+			setPlayerB(player);
+		}
+		if (getPlayerA() != null && getPlayerB() != null) {
+			getPlayerA().setOpponent(getPlayerB().getName());
+			getPlayerB().setOpponent(getPlayerA().getName());
+		}
+	}
 
-    private WeakHashMap<Player, HashSet<Message>> messageMap = new WeakHashMap<Player, HashSet<Message>>();
-    // Valid roles in this game
-    public static List<Player> ROLES = new ArrayList<Player>(2);
+	public void reset() {
+		resetPlayer();
+		clearSteps();
+		clearPlayers();
+		clearReplayers();
+	}
 
-    static {
-        ROLES.add(Player.white);
-        ROLES.add(Player.black);
-        Collections.unmodifiableCollection(ROLES);
-    }
+	public void replay(Role player) {
+		add(getReplayers(), player);
+		if (getReplayers().size() == Role.values().length) {
+			replay();
+		}
+	}
 
-    public FiveChessRoom() {
-        messageMap.put(Player.black, new HashSet<Message>());
-        messageMap.put(Player.white, new HashSet<Message>());
-    }
+	public void replay() {
+		clearSteps();
+		clearReplayers();
+	}
 
-    public void reset() {
-        resetPlayer();
-        clearSteps();
-        clearPlayers();
-        clearReplayers();
-    }
+	private void resetPlayer() {
+		nextPlayer = Role.getDefault();
+	}
 
-    public void replay(Player player) {
-        add(getReplayers(), player);
-        if (getReplayers().size() == ROLES.size()) {
-            replay();
-        }
-    }
+	public void play(Role pa, String id) {
+		if (id != null && id.contains("_")) {
+			if (getNextPlayer().equals(pa)) {
+				String index[] = id.split("_");
+				getSteps().add(0, new Step(pa, Integer.parseInt(index[0]), Integer.parseInt(index[1])));
+				switchPlayer();
+			}
+		}
+	}
 
-    public void replay() {
-        clearSteps();
-        clearReplayers();
-    }
+	@SuppressWarnings({ "rawtypes", "unchecked" })
+	private boolean add(Collection list, Object o) {
+		try {
+			if (!list.contains(o)) {
+				list.add(o);
+				return true;
+			}
+		} catch (Exception e) {
+		}
+		return false;
+	}
 
-    private void resetPlayer() {
-        nextPlayer = Player.white;
-    }
+	public void addMessage(Role p, String message) {
+		HashSet<Message> msg = messageMap.get(p);
+		msg.add(new Message(p.toString(), message));
+	}
 
-    public void play(Player pa, String id) {
-        if (id != null && id.contains("_")) {
-            if (getNextPlayer().equals(pa)) {
-                String index[] = id.split("_");
-                getSteps().add(0, new Step(pa, Integer.parseInt(index[0]),
-                        Integer.parseInt(index[1])));
-                switchPlayer();
-            }
-        }
-    }
+	private void switchPlayer() {
+		nextPlayer = Role.chooseOpponent(nextPlayer);
+	}
 
-    public boolean add(List list, Object o) {
-        try {
-            if (!list.contains(o)) {
-                list.add(o);
-                return true;
-            }
-        } catch (Exception e) {
-        }
-        return false;
-    }
+	public String getLastStep() {
+		return getSteps().size() > 0 ? getSteps().get(0).toString() : "";
+	}
 
-    public Player getPlayer(String sessionId) {
-        return livePlayersMap.get(sessionId);
-    }
+	public HashSet<Message> getMessages(Role role) {
+		HashSet<Message> msgs = messageMap.get(Role.chooseOpponent(role));
+		for (Message m : msgs) {
+			if (m.isSent()) {
+				msgs.remove(m);
+			} else {
+				m.setSent(true);
+			}
+		}
+		if (msgs.size() > 0) 
+		logger.info("Return messages for {} with size {}", role, msgs.size());
+		return msgs;
+	}
+	
+	public HashSet<Message> getPlayerAMessages() {
+		if (playerA != null) {
+			return getMessages(playerA.getRole());
+		}
+		return null;
+	}
+	
+	public HashSet<Message> getPlayerBMessages() {
+		if (playerB != null) {
+			return getMessages(playerB.getRole());
+		}
+		return null;
+	}
 
-    public boolean addPlayer(String sessionId, Player p) {
-        if (livePlayersMap.containsKey(sessionId)) return true;
-        if (livePlayersMap.size() < ROLES.size()) {
-            livePlayersMap.put(sessionId, p);
-            return true;
-        } 
-        return false;
-    }
+	public List<Step> getSteps() {
+		return steps;
+	}
 
-    public void addMessage(Player p, String message) {
-        HashSet<Message> msg = getMessageMap().get(p);
-        msg.add(new Message(p.toString(), message));
-    }
+	private void clearSteps() {
+		getSteps().clear();
+	}
 
-    private void switchPlayer() {
-        if (getNextPlayer() == Player.black) {
-            setNextPlayer(Player.white);
-        } else {
-            setNextPlayer(Player.black);
-        }
-    }
+	private void clearPlayers() {
+		setPlayerA(null);
+		setPlayerB(null);
+	}
 
-    public String getLastStep() {
-        return getSteps().size() > 0 ? getSteps().get(0).toString() : "";
-    }
+	private void clearReplayers() {
+		getReplayers().clear();
+	}
 
-    /**
-     * @return the nextPlayer
-     */
-    public Player getNextPlayer() {
-        return nextPlayer;
-    }
+	public Role getNextPlayer() {
+		return nextPlayer;
+	}
 
-    /**
-     * @param nextPlayer the nextPlayer to set
-     */
-    private void setNextPlayer(Player player) {
-        this.nextPlayer = player;
-    }
+	public void setSteps(List<Step> steps) {
+		this.steps = steps;
+	}
 
-    /**
-     * @return the livePlayersMap
-     */
-    public Collection<Player> getPlayers() {
-        return livePlayersMap.values();
-    }
+	public Collection<Role> getReplayers() {
+		return replayers;
+	}
 
-    public String getSessionIdString() {
-        return livePlayersMap.keySet().toString();
-    }
+	public String getNum() {
+		return num;
+	}
 
-    public int getPlayersSize() {
-        return getPlayers().size();
-    }
+	public void setNum(String num) {
+		this.num = num;
+	}
 
-    public int getRolesSize() {
-        return ROLES.size();
-    }
+	public Player getPlayerA() {
+		return playerA;
+	}
 
-    public String getJSONSteps() {
-        return toJSON(getSteps());
-    }
+	public void setPlayerA(Player playerA) {
+		this.playerA = playerA;
+	}
 
-    /**
-     * @return the livePlayersMap
-     */
-    public String getJSONPlayers() {
-        return toJSON(getPlayers());
-    }
+	public Player getPlayerB() {
+		return playerB;
+	}
 
-    /**
-     * @return the livePlayersMap
-     */
-    public String getJSONReplayRequesters() {
-        return toJSON(getReplayers());
-    }
-
-    private String toJSON(Collection list) {
-        StringBuilder sb = new StringBuilder();
-        sb.append("[");
-        for (Object o : list) {
-            boolean needComma = o instanceof Player || o.getClass().isPrimitive();
-            if (needComma) {
-                sb.append("'");
-            }
-            sb.append(o.toString());
-            if (needComma) {
-                sb.append("'");
-            }
-            sb.append(",");
-        }
-        sb.append("]");
-        return sb.toString().replaceAll(",]", "]");
-    }
-
-    public String getMessages(Player p) {
-        if (!ROLES.contains(p)) return "[]";
-        if (p == Player.black) {
-            p = Player.white;
-        } else if (p == Player.white) {
-             p = Player.black;
-        }
-        HashSet<Message> msgs = getMessageMap().get(p);
-        String res = toJSON(msgs);
-        for (Message m : msgs) {
-            if (m.isSent()) {
-                msgs.remove(m);
-            }
-        }
-        return res;
-    }
-
-    /**
-     * @return the replayRequests
-     */
-    public List<Player> getReplayers() {
-        return replayers;
-    }
-
-    /**
-     * @return the steps
-     */
-    public List<Step> getSteps() {
-        return steps;
-    }
-
-    private void clearSteps() {
-        getSteps().clear();
-    }
-
-    private void clearPlayers() {
-        livePlayersMap.clear();
-    }
-
-    private void clearReplayers() {
-        getReplayers().clear();
-    }
-
-    /**
-     * @return the messageMap
-     */
-    public WeakHashMap<Player, HashSet<Message>> getMessageMap() {
-        return messageMap;
-    }
-
-    /**
-     * @param messageMap the messageMap to set
-     */
-    public void setMessageMap(WeakHashMap<Player, HashSet<Message>> messageMap) {
-        this.messageMap = messageMap;
-    }
+	public void setPlayerB(Player playerB) {
+		this.playerB = playerB;
+	}
 }
 
 final class Step {
 
-    private Player player = null;
-    private int x;
-    private int y;
+	private Role player = null;
+	private int x;
+	private int y;
 
-    public Step(Player p, int x, int y) {
-        this.player = p;
-        this.x = x;
-        this.y = y;
-    }
+	public Step(Role p, int x, int y) {
+		this.player = p;
+		this.x = x;
+		this.y = y;
+	}
 
-    /**
-     * @return the nextPlayer
-     */
-    public Player getPlayer() {
-        return player;
-    }
+	/**
+	 * @return the nextPlayer
+	 */
+	public Role getPlayer() {
+		return player;
+	}
 
-    /**
-     * @param nextPlayer the nextPlayer to set
-     */
-    public void setPlayer(Player player) {
-        this.player = player;
-    }
+	/**
+	 * @param nextPlayer
+	 *            the nextPlayer to set
+	 */
+	public void setPlayer(Role player) {
+		this.player = player;
+	}
 
-    /**
-     * @return the x
-     */
-    public int getX() {
-        return x;
-    }
+	/**
+	 * @return the x
+	 */
+	public int getX() {
+		return x;
+	}
 
-    /**
-     * @return the y
-     */
-    public int getY() {
-        return y;
-    }
+	/**
+	 * @return the y
+	 */
+	public int getY() {
+		return y;
+	}
 
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("{'player':'").append(getPlayer().toString().toLowerCase()).append("','playId':'").append(getX() + "_" + getY()).append("'}");
-        return sb.toString();
-    }
-}
-
-enum Player {
-
-    wait,
-    white,
-    black;
 }

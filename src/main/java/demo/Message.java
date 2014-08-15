@@ -40,7 +40,7 @@ public class Message {
     /**
      * @param sent the sent to set
      */
-    public void setSent(boolean sent) {
+	public void setSent(boolean sent) {
         this.sent = sent;
     }
 
@@ -86,13 +86,6 @@ public class Message {
         return player;
     }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("{'player':'").append(getPlayer()).append("','time':'").append(formateTime()).append("', 'message':'").append(getMessage()).append("'}");
-        setSent(true);
-        return sb.toString();
-    }
 
     public String formateTime() {
         return format.format(getTime());
