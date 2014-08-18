@@ -2,7 +2,7 @@ var admin = "admin";
 var time = 0;
 var queryTimer = null;
 var keepMsgNum = 15;
-var QUERY_INTERVAL = 600;
+var QUERY_INTERVAL = 800;
 var classChessBackground = "chessBackground";
 var classChessContainer = "chessContainer";
 
@@ -22,7 +22,7 @@ var GridPainter = {
 		this.borderWidth = borderWidth;
 	},
 	draw : function(target, isChessContainer) {
-		var isBoxMo = true;
+		var isBoxMo = false;
 		var rows = isChessContainer ? this.rows : this.rows + 1;
 		var columns = isChessContainer ? this.columns : this.columns + 1;
 		var gridWidth = isChessContainer ? (this.cubicSize + (isBoxMo ? this.borderWidth
@@ -207,6 +207,7 @@ var Session = {
 	},
 	updateUser : function(u) {
 		this.user = u;
+		applyUser(u);
 		setRole(u.role);
 		setPlayer(u.nextPlayer);
 	},
@@ -381,13 +382,6 @@ function getTimeStamp() {
 	return d.getTime();
 }
 
-function createMessageLi(player, time, message) {
-	var msg = [];
-	msg.push("<li><div class='firstLine'> ", time, " ", player.toUpperCase(),
-			" said:</div><div class='secondLine'>", message, "</div></li>");
-	return $(msg.join(""));
-}
-
 function createTime() {
 	var date = new Date();
 	var res = [];
@@ -396,7 +390,7 @@ function createTime() {
 }
 
 function sendMessage() {
-	var msgEle = $(".messageInput textarea");
+	var msgEle = $("#messageBox");
 	var message = msgEle.val();
 	if ($.trim(message).length == 0) {
 		return;
@@ -409,50 +403,32 @@ function sendMessage() {
 }
 
 function clearMessage() {
-	$(".messageInput textarea").val('');
+	$("#messageBox").val('');
 }
 
 function showMessage(p, time, message) {
-	var msgContainer = $("#messages ul");
+	var msgContainer = $("#messages");
 	msgContainer.append(createMessageLi(p, time, message));
-	var msgs = $("#messages ul li");
-	var msgsSize = msgs.get().length;
-	for (var i = msgsSize - keepMsgNum; i > 0; i--) {
-		$("#messages ul li:nth-child(" + i + ")").remove();
+	var msgs = $("#messages li");
+	var msgsSize = msgs.size();
+	 for (var i = msgsSize - keepMsgNum; i > 0; i--) {
+		$("#messages li:nth-child(" + i + ")").remove();
 	}
+}
+
+function createMessageLi(player, time, message) {
+	var msg = [];
+	msg.push("<li><div class='firstLine'> ", time, " ", player.toUpperCase(),
+			"</div><div class='secondLine'>", message, "</div></li>");
+	return $(msg.join(""));
 }
 
 function showMessages(res) {
-	if (res.length > 0) {
+	setTimeout(function() {
 		$.each(res, function(i, r) {
 			showMessage(r.player, r.time, decodeURIComponent(r.message));
-		});
-	}
-}
-
-function circleOne(targetCon) {
-	if ($(targetCon.get(0).parentNode).attr("class") == 'raised')
-		return;
-	var outer = $("<div class='raised'></div>");
-	var beforeContent = $("<b class='b1'></b><b class='b2'></b><b class='b3'></b><b class='b4'></b>");
-	var afterContent = $("<b class='b4b'></b><b class='b3b'></b><b class='b2b'></b><b class='b1b'></b>");
-	circle(outer, targetCon, beforeContent, afterContent);
-}
-
-function circle(outer, tagertContent, beforeContent, afterContent) {
-	outer.offset(tagertContent.offset());
-	outer.css("position", tagertContent.css("position"));
-	outer.css("float", tagertContent.css("float"));
-	outer.width(tagertContent.css("width"));
-	outer.height(tagertContent.css("height"));
-	tagertContent.css("position", "static");
-	tagertContent.css({
-		'overflow' : 'hidden',
-		'float' : 'left'
-	});
-	tagertContent.wrap(outer);
-	beforeContent.insertBefore(tagertContent);
-	afterContent.insertAfter(tagertContent);
+		})
+	}, 0);
 }
 
 function initOperations() {
@@ -468,7 +444,7 @@ function initOperations() {
 	$("input[name='clearRooms']").hide();
 	$("input[name='createRoom']").bind("click", createRoom);
 	$(".boxcontent").each(function() {
-		circleOne($(this));
+		// circleOne($(this));
 	});
 	if (Session.user.name == admin) {
 		$("input[name='doQueryJob']").show();
@@ -491,10 +467,10 @@ function initOperations() {
 			return false;
 		}
 	});
-	$(".messageInput textarea").bind("focus", function() {
+	$("#messageBox").bind("focus", function() {
 		$(document).bind("keyup", autoSendMessage);
 	});
-	$(".messageInput textarea").bind("blur", function() {
+	$("#messageBox").bind("blur", function() {
 		$(document).unbind("keyup", autoSendMessage);
 	});
 	if (Session.user.roomNum) {

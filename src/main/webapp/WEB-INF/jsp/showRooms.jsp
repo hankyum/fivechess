@@ -15,11 +15,12 @@
 %>
 <c:forEach items="${roomKeys}" var="key" varStatus="stat">
 	<c:if test="${not empty key}">
-		<li id="room_${key}">
-			<a href="?roomNum=${user.roomNum}" target="_palyContainer">${key}</a>
-			<div class="buttons">
-				<input type="button" value="Join" onclick="join('${key}');" /> <input type="button" value="Copy" onclick="shareLink('?roomNum=${key}');" />
-			</div>
+		<li id="room_${key}" class="list-group-item">
+			<a href="?roomNum=${user.roomNum}" target="_blank">${key}</a>
+			<span class="floatRight">
+				<input type="button" value="Join" onclick="join('${key}');" />
+<%-- 				 <input type="button" value="Copy" onclick="shareLink('?roomNum=${key}');" /> --%>
+			</span>
 		</li>
 	</c:if>
 </c:forEach>

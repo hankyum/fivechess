@@ -1,10 +1,10 @@
 var target = "_blank";
-
+var creatingRoom = false;
 $(document).ready(function() {
 	showRooms();
 	_gridWidth = 30;
 	_columns = 20;
-	setInterval(showRooms, 5000);
+	 setInterval(showRooms, 2000);
 	$.getJSON("player", function(user) {
 		Session.updateUser(user);
 		if (user.roomNum && user.roomNum.length > 0) {
@@ -13,6 +13,29 @@ $(document).ready(function() {
 		initGame("#qijiu");
 	});
 });
+
+var app = angular.module("myApp", []);
+app.controller("UserInfo", [ "$scope", "$rootScope",
+		function($scope, $rootScope) {
+			$scope.msg = "great";
+			$rootScope.safeApply = function(fn) {
+				var phase = this.$root.$$phase;
+				if (phase == '$apply' || phase == '$digest') {
+					if (fn) {
+						fn();
+					}
+				} else {
+					this.$apply(fn);
+				}
+			};
+		} ]);
+
+function applyUser(user) {
+	var scope = angular.element($("#NgUserInfo")).scope();
+	scope.safeApply(function() {
+		scope.user = user;
+	})
+}
 
 function shareLink(text) {
 	var ele = document.createElement("a");
@@ -55,25 +78,31 @@ function createJoinButton(room) {
 }
 
 function createRoom() {
-	var room = $.trim($("#roomName").val());
-	if (room.length == 0)
-		return;
-	$.getJSON("createRoom/" + room, function(data) {
-		if (data.success) {
-			if (Session.user.name != admin) {
-				$("#roomName").disable();
-				$("input[name='createRoom']").disable();
+	if (!creatingRoom) {
+		creatingRoom = true;
+		var room = $.trim($("#roomName").val());
+		$.getJSON("createRoom/" + room, function(data) {
+			alert("xxx");
+			creatingRoom = false;
+			if (data.success) {
+				alert("Success");
+				if (Session.user.name != admin) {
+					$("#roomName").hide();
+					$("input[name='createRoom']").hide();
+				}
+				var li = $("<li class='list-group-item' id='room_" + room
+						+ "'/>");
+				li.append(createLinkEle(room));
+				var span = $("<span/>");
+				span.addClass("floatRight");
+				span.append(createJoinButton(room));
+				// span.append(createCopyButton(room));
+				li.append(span);
+				$("#roomsList").prepend(li);
 			}
-			var li = $("<li id='room_" + room + "'/>");
-			li.append(createLinkEle(room));
-			var span = $("<span/>");
-			span.addClass("buttons");
-			span.append(createJoinButton(room));
-			span.append(createCopyButton(room));
-			li.append(span);
-			$("#roomsList").prepend(li);
-		}
-	});
+		});
+	}
+	return false;
 }
 
 function play(id) {
@@ -94,7 +123,7 @@ function play(id) {
 
 function resetRoom() {
 	$.get("reset");
-	drawChessContainer();
+	GridPainter.render();
 }
 
 function requestReplay() {
@@ -128,14 +157,16 @@ function showRooms() {
 function query() {
 	$.getJSON("/query/" + Session.user.roomNum, function(data) {
 		setPlayer(data.nextPlayer);
+		Session.user.nextPlayer = data.nextPlayer;
+		Session.updateUser(Session.user);
 		showSteps(data);
 		if (data.steps.length == 0) {
 			Session.successor = null;
 		}
-		if (Session.user.role == data.playerA.role) {
+		if (data.playerA && Session.user.role == data.playerA.role) {
 			showMessages(data.playerAMessages);
 		}
-		if (Session.user.role == data.playerB.role) {
+		if (data.playerB && Session.user.role == data.playerB.role) {
 			showMessages(data.playerBMessages);
 		}
 	});

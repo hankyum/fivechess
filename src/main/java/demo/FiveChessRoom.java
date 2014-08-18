@@ -89,7 +89,7 @@ public class FiveChessRoom {
 
 	public void addMessage(Role p, String message) {
 		HashSet<Message> msg = messageMap.get(p);
-		msg.add(new Message(p.toString(), message));
+		msg.add(new Message(p, message));
 	}
 
 	private void switchPlayer() {
@@ -101,9 +101,10 @@ public class FiveChessRoom {
 	}
 
 	public HashSet<Message> getMessages(Role role) {
-		HashSet<Message> msgs = messageMap.get(Role.chooseOpponent(role));
+		Role msgToRetrive = Role.chooseOpponent(role);
+		HashSet<Message> msgs = messageMap.get(msgToRetrive);
 		for (Message m : msgs) {
-			if (m.isSent()) {
+			if (m.isSent() && m.getPlayer() == msgToRetrive) {
 				msgs.remove(m);
 			} else {
 				m.setSent(true);

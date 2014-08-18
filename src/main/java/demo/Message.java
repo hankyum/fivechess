@@ -14,7 +14,7 @@ import java.util.Date;
  * @author hank.guo
  */
 public class Message {
-    private String player;
+    private Role player;
     private boolean sent;
     private String message;
     private Date time;
@@ -24,7 +24,7 @@ public class Message {
        
     }
 
-    public Message(String p, String message) {
+    public Message(Role p, String message) {
         setPlayer(p);
         setMessage(message);
         setTime(new Date());
@@ -75,14 +75,14 @@ public class Message {
     /**
      * @param player the player to set
      */
-    public void setPlayer(String player) {
+    public void setPlayer(Role player) {
         this.player = player;
     }
 
     /**
      * @return the player
      */
-    public String getPlayer() {
+    public Role getPlayer() {
         return player;
     }
 
