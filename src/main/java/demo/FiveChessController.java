@@ -77,6 +77,12 @@ public class FiveChessController {
 		player.setSessionId(session.getId());
 		return new ModelAndView(ROOMS_ATTR);
 	}
+	
+	@RequestMapping(value = "/tetris")
+	public ModelAndView teris(HttpSession session, @ModelAttribute("user") Player player) {
+		player.setSessionId(session.getId());
+		return new ModelAndView("tetris");
+	}
 
 	@RequestMapping(value = "/admin")
 	@ResponseBody

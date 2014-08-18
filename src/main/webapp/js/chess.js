@@ -7,6 +7,7 @@ var classChessBackground = "chessBackground";
 var classChessContainer = "chessContainer";
 
 var GridPainter = {
+	isBoxMode : false,
 	allBorder : [ "Top", "Left", "Right", "Bottom" ],
 	topLeftBorder : [ "Top", "Left" ],
 	rightBottomBorder : [ "Right", "Bottom" ],
@@ -22,7 +23,7 @@ var GridPainter = {
 		this.borderWidth = borderWidth;
 	},
 	draw : function(target, isChessContainer) {
-		var isBoxMo = false;
+		var isBoxMo = this.isBoxMode;
 		var rows = isChessContainer ? this.rows : this.rows + 1;
 		var columns = isChessContainer ? this.columns : this.columns + 1;
 		var gridWidth = isChessContainer ? (this.cubicSize + (isBoxMo ? this.borderWidth
