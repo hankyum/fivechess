@@ -23,6 +23,7 @@ var GridPainter = {
 		this.borderWidth = borderWidth;
 	},
 	draw : function(target, isChessContainer) {
+		var grids = [];
 		var isBoxMo = this.isBoxMode;
 		var rows = isChessContainer ? this.rows : this.rows + 1;
 		var columns = isChessContainer ? this.columns : this.columns + 1;
@@ -48,6 +49,7 @@ var GridPainter = {
 			this.setBorder(target, this.topLeftBorder, this.borderWidth);
 		}
 		for (var i = 0; i < rows; i++) {
+			grids[i] = [];
 			var grid = null;
 			for (var j = 0; j < columns; j++) {
 				grid = $("<span/>");
@@ -65,9 +67,10 @@ var GridPainter = {
 							this.borderWidth);
 				}
 				target.append(grid);
+				grids[i][j] = grid;
 			}
 		}
-		return;
+		return grids;
 	},
 	setBorder : function(ele, positions, width) {
 		if (width == 0) {
@@ -412,7 +415,7 @@ function showMessage(p, time, message) {
 	msgContainer.append(createMessageLi(p, time, message));
 	var msgs = $("#messages li");
 	var msgsSize = msgs.size();
-	 for (var i = msgsSize - keepMsgNum; i > 0; i--) {
+	for (var i = msgsSize - keepMsgNum; i > 0; i--) {
 		$("#messages li:nth-child(" + i + ")").remove();
 	}
 }

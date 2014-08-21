@@ -13,6 +13,7 @@
 <title>Hank's Tetris</title>
 <link rel="STYLESHEET" type="text/css" href="../css/chess.css">
 <script src="/webjars/jquery/2.1.1/jquery.min.js"></script>
+<!-- <script src="http://cdn.bootcss.com/jquery/1.4.1/jquery.min.js"></script> -->
 <script type="text/javascript" src="../js/chess.js"></script>
 <script type="text/javascript">
 	var Key = {
@@ -118,7 +119,7 @@
 	}
 	function Cubic(x, y) {
 		this.context = [];
-		this.style = null;
+		this.style = "cubicStyle";
 		this.xLimit = 0;
 		this.yLimit = 0;
 		this.x = x;
@@ -150,8 +151,8 @@
 				x = arguments[0];
 				y = arguments[1];
 			}
-			return this.getCubic(x, y) != null
-					&& this.getCubic(x, y).attr("class").indexOf("cubicStyle") < 0;
+			return this.getCubic(x, y) == null
+					|| !this.getCubic(x, y).hasClass(this.style);
 		};
 		this.isRendered = function() {
 			var x = this.x;
@@ -161,13 +162,12 @@
 				y = arguments[1];
 			}
 			return this.getCubic(x, y) != null
-					&& this.getCubic(x, y).attr("class").indexOf("cubicStyle") >= 0;
+					&& this.getCubic(x, y).hasClass(this.style);
 		};
 		this.clear = function() {
 			var cub = this.getCubic(this.x, this.y);
 			if (cub != null) {
-				cub.attr("class", cub.attr("class").replace(
-						/cubicStyle[^\s]+/g, ''))
+				cub.removeClass(this.style);
 			}
 		};
 		this.render = function() {
@@ -182,9 +182,6 @@
 			this.style = style;
 		};
 		this.getStyle = function() {
-			if (this.style == null) {
-				this.style = this.getCubic().attr("class");
-			}
 			return this.style;
 		};
 		this.left = function() {
