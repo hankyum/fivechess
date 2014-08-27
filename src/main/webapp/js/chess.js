@@ -13,6 +13,7 @@ var GridPainter = {
 	rightBottomBorder : [ "Right", "Bottom" ],
 	columns : 20,
 	rows : 20,
+	setId : false,
 	cubicSize : 30,
 	borderWidth : 1,
 	_matchNumber : 5,
@@ -63,6 +64,9 @@ var GridPainter = {
 					});
 					this.setBorder(grid, this.allBorder, 0);
 				} else {
+					if (this.setId) {
+						grid.attr("id", tid);
+					}
 					this.setBorder(grid, this.rightBottomBorder,
 							this.borderWidth);
 				}

@@ -17,8 +17,8 @@
 <body>
 	<div class="container-fluid">
 		<div class="row">
-			<h2>
-				Welcome to Hank's <span class="highLight">Five In Row</span>.
+			<h2 >
+				Welcome to Hank's <span class="highLight">Five In Row</span>
 			</h2>
 		</div>
 		<div class="row">
@@ -84,8 +84,8 @@
 	<script src="/webjars/jquery/2.1.1/jquery.min.js"></script>
 	<script src="/webjars/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	<script src="/webjars/angularjs/1.3.0-beta.15/angular.js"></script>
-<!-- 	<script type="text/javascript" src="../js/chess.js"></script> -->
-<!-- 	<script type="text/javascript" src="../js/actions.js"></script> -->
+	<!-- 	<script type="text/javascript" src="../js/chess.js"></script> -->
+	<!-- 	<script type="text/javascript" src="../js/actions.js"></script> -->
 	<script type="text/javascript" src="../js/script.min.js"></script>
 </body>
 </html>
