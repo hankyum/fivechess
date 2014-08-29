@@ -1,0 +1,344 @@
+﻿<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>一加手机竹质限量版 生而唯一，给独一无二的你</title>
+<meta content="一加手机,一加手机竹质后盖,竹智,竹质,竹子,足智多谋,竹质手机2499.99元" name="keyword" />
+<meta content="一加手机,一加手机竹质后盖,竹智,竹质,竹子,足智多谋,竹质手机2499.99元，包括详细介绍及图片" name="description">
+<link rel="stylesheet" type="text/css" href=".//statics.oneplus.cn/css/jquery.bxslider.css" media="screen" />
+<link rel="shortcut icon" href=".//statics.oneplus.cn/img/oneplus.ico" type="image/x-icon">
+<link rel="stylesheet" type="text/css" href=".//statics.oneplus.cn/css/init.css" media="screen" />
+<link rel="stylesheet" type="text/css" href=".//statics.oneplus.cn/css/common.css" media="screen" />
+<link rel="stylesheet" type="text/css" href=".//statics.oneplus.cn/css/bamboo1.css" media="screen" />
+
+<script type="text/javascript" src=".//statics.oneplus.cn/js/lib/jquery-1.9.1.js"></script>
+<script type="text/javascript" src=".//statics.oneplus.cn/js/lib/respond.min.js"></script>
+<script type="text/javascript" src=".//statics.oneplus.cn/js/lib/messenger.js"></script>
+<script type="text/javascript" src=".//statics.oneplus.cn/js/components/popwin/popwin.js"></script>
+<script type="text/javascript" src=".//statics.oneplus.cn/js/common.js"></script>
+<!--[if lt IE 9]>
+    <script src=".//statics.oneplus.cn/js/lib/html5.js"></script>
+    <![endif]-->
+<!--[if lte IE 6]>
+        <script src=".//statics.oneplus.cn/js/lib/ddpng.js"></script>
+        <script type="text/javascript">
+            DD_belatedPNG.fix('.text-box p, .enter-btn img, .top-cover img, .icon, .n-text-brown .n-title span, .beyond-text .b-title span, .only-title span, .n-text-brown .n-text,.beyond-text .b-text, .only-intro .only-p');
+        </script>
+
+    <![endif]-->
+<script>
+	//判断是否为移动设备，如果是跳转到移动版
+	var browser = navigator.userAgent;
+	//         if(browser.indexOf('iPhone') > -1 || browser.indexOf('iPad') > -1||browser.indexOf('Android') >=0){ 
+	//             window.location.href = "http://wx.oneplus.cn/weixin/slot/zhuzhi";
+	//         }
+
+	//document.domain = 'oneplus.cn';
+	var _GLOBAL_CONFIG = {
+		'loginUrl' : 'http://account.oneplus.cn/login/poplogin',
+		'bbsShareUrl' : 'http://www.oneplusbbs.com/api/share.php',
+		'youku_url' : 'http://v.youku.com/v_show/id_XNzQ0MDk3ODY0.html',
+		"setRemind" : {
+			'telValidte' : 'http://www.oneplus.cn/Firstsale/AjaxGetMobileRushStatus', //手机验证地址，验证是否已经存在
+			'validImgCode' : 'http://www.oneplus.cn/firstsale/AjaxVerifyZZ', //验证图形验证码
+			'getImgCode' : 'http://www.oneplus.cn/firstsale/ajaxcodeZZ', //获取图形验证码
+			'getTelCode' : 'http://www.oneplus.cn/firstsale/AjaxVerifys', //获取短信验证码
+			'validTelCode' : 'http://www.oneplus.cn/firstsale/ajaxverifyphone', //验证短信验证码
+			'submitRemind' : 'http://www.oneplus.cn/firstsale/ajaxSetSmsNoticeZZ' //提交表单
+		},
+		'ajaxOyTime' : 'http://www.oneplus.cn/firstsale/AjaxOyTimeZZ', //页面初始化接口
+		'buyZhuPhone' : 'panic64.html' //竹智手机购买页面
+	};
+	var webUrl = {
+		"member" : "http://my.oneplus.cn",
+		"account" : "http://account.oneplus.cn",
+		"loginout" : 'http://account.oneplus.cn/login/logout/jump/',
+		"register" : "http://account.oneplus.cn/regist/index"
+	};
+</script>
+<script>
+	var _hmt = _hmt || [];
+	(function() {
+		var hm = document.createElement("script");
+		hm.src = "//hm.baidu.com/hm.js?e3c7f7f17054135e8f86f4c943459d8b";
+		var s = document.getElementsByTagName("script")[0];
+		s.parentNode.insertBefore(hm, s);
+	})();
+</script>
+</head>
+<body>
+	<div class="play-box" id="play_con">
+		<div class="load-icon" id="loading"></div>
+		<div class="play-container" id="playCon">
+			<video class="play" id="zplayer" autoplay="autoplay">
+				<source src="http://statics.oneplus.cn/img/backcover/bamboo/backvideo.mp4?v=20140807" />
+				<source src="http://statics.oneplus.cn/img/backcover/bamboo/backvideo.webm?v=20140807" />
+				<source src="http://statics.oneplus.cn/img/backcover/bamboo/backvideo.ogv?v=20140807" />
+				<ins>您的浏览器不支持视频，建议升级或安装 chrome 浏览器</ins>
+			</video>
+			<div class="mask"></div>
+		</div>
+		<div class="text-box" id="copyText">
+			<p class="text1">竹智,取之自然,超越自然,唤醒科技时代里的自然渴望,生而唯一,给世界上独一无二的你。</p>
+			<p class="text2"></p>
+			<p class="text3"></p>
+			<p class="text4"></p>
+			<p class="text5"></p>
+		</div>
+		<div class="enter-btn" id="enterBtn">
+			<a href="javascript:;"><img src=".//statics.oneplus.cn/img/backcover/bamboo/btn_enter.png" alt="进入页面"></a>
+		</div>
+	</div>
+	<div class="bb-contain" id="b_con">
+		<!--顶导开始-->
+		<header>
+			<div class="header">
+				<div class="header-box">
+					<div class="container clearfix">
+						<h1 class="logo">
+							<a href="http://www.oneplus.cn/index.php"><img src=".//statics.oneplus.cn/img/logo-oneplus.png" alt="一加官网"></a>
+						</h1>
+						<div class="header-top">
+							<ul class="tul clearfix">
+								<li class="nav-t nav-login" id="nav-login">
+									<div class="nav-name nav-login-t">
+										<span><i class="icon-user"></i><a href="#" id="glogin">登录</a> / <a href="http://account.oneplus.cn/regist/index" id="registerBtn" target="_blank">注册</a></span>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<nav class="nav">
+							<ul>
+								<li class="nav-li nav-li1">
+									<a href="http://www.oneplus.cn/yijiashouji" class="nav-name">一加手机<sup class="icon-plus">+</sup></a>
+								</li>
+								<li class="nav-li nav-li3">
+									<a href="http://www.oneplus.cn/accessories" class="nav-name">手机配件</a>
+								</li>
+								<li class="nav-li nav-li4">
+									<a href="http://lifestyle.oneplus.cn/" class="nav-name">一加生活</a>
+								</li>
+								<li class="nav-li nav-li5">
+									<a href="http://service.oneplus.cn/" class="nav-name">客户服务</a>
+								</li>
+								<li class="nav-li nav-li6">
+									<a href="http://www.oneplusbbs.com/" class="nav-name" target="_blank">一加社区</a>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+		</header>
+		<!--顶导结束-->
+		<!-- 		<div class="top-scene"> -->
+		<!-- 			<div class="zhuzhi-logo"> -->
+		<!-- 				<img alt="" src=".//statics.oneplus.cn/img/backcover/bamboo/top-logo-1.png"> -->
+		<!-- 			</div> -->
+		<!-- 			<div class="count-dowm"> -->
+		<!-- 				距8月25日十点开售 还有 <span class="icon time"></span> <span id="unit">天</span> -->
+		<!-- 			</div> -->
+		<!-- 			<div class="zhuzhi-price"> -->
+		<!-- 				<img alt="" src=".//statics.oneplus.cn/img/backcover/bamboo/top-price-1.png"> -->
+		<!-- 			</div> -->
+		<!-- 			<div class="top-btn"> -->
+		<!-- 				<a id="setRemind" href="javascript:;">开抢提醒</a> -->
+		<!-- 			</div> -->
+		<!-- 			<p class="single-link"> -->
+		<!-- 				<a href="zhuzhihougai.html" target="_blank">竹质后盖单独购买&gt;</a> <a class="nor-link" href="http://www.oneplus.cn/items/0101010601" target="_blank">16GB白色现货购买&gt;</a> -->
+		<!-- 			</p> -->
+		<!-- 			<div class="top-cover"> -->
+		<!-- 				<a id="openCoverBtn" href="javascript:;"><img title="查看细节图" alt="查看细节图" src=".//statics.oneplus.cn/img/backcover/bamboo/back-1.png"></a> -->
+		<!-- 			</div> -->
+		<!-- 		</div> -->
+		<!--图片展示-->
+		<ul class="homeSlider" >
+			<li>
+				<img src=".//statics.oneplus.cn/img/backcover/bamboo/covershow-img-1.jpg" alt="">
+			</li>
+			<li>
+				<img src=".//statics.oneplus.cn/img/backcover/bamboo/covershow-img-2.jpg" alt="">
+			</li>
+			<li>
+				<img src=".//statics.oneplus.cn/img/backcover/bamboo/covershow-img-3.jpg" alt="">
+			</li>
+			<li>
+				<img src=".//statics.oneplus.cn/img/backcover/bamboo/covershow-img-4.jpg" alt="">
+			</li>
+		</ul>
+		<!--取之自然-->
+		<div class="nature-scene">
+			<ul class="nature-bg">
+				<li class="img1"></li>
+				<li class="img2"></li>
+				<li class="img3"></li>
+			</ul>
+			<div class="n-text-box">
+				<div class="n-text-brown">
+					<div class="n-title">
+						<span class="quzhi">取之</span> <span class="xian">/</span> <span class="ziran">自然</span>
+					</div>
+					<p class="n-text">五年生楠竹，择茁者二十节，二十一天，历工序二十八道，仅上品五成，方为竹智。</p>
+				</div>
+				<div class="n-text-white"></div>
+			</div>
+			<div class="n-icon">
+				<ul>
+					<li class="grow-time">
+						<i class="icon"></i><span class="icon" id="growDay">0</span>
+					</li>
+					<li class="joint-num">
+						<i class="icon"></i><span class="icon" id="bamNum">0</span>
+					</li>
+					<li class="process-num">
+						<i class="icon"></i><span class="icon" id="proNum">0</span>
+					</li>
+				</ul>
+			</div>
+		</div>
+		<!-- 超越自然 -->
+		<div class="beyond-scene">
+			<div class="beyond-img-con">
+				<div class="beyond-img">
+					<ul>
+						<li>
+							<img src=".//statics.oneplus.cn/img/backcover/bamboo/beyond-img2.jpg" class="banner" alt="一加手机">
+						</li>
+						<li>
+							<img src=".//statics.oneplus.cn/img/backcover/bamboo/beyond-img1.jpg" class="banner" alt="一加手机">
+						</li>
+					</ul>
+				</div>
+				<ul class="img-control">
+					<li class="on">
+						<a href="javascript:;"></a>
+					</li>
+					<li>
+						<a href="javascript:;"></a>
+					</li>
+				</ul>
+			</div>
+			<div class="beyond-text">
+				<div class="b-title">
+					<span class="beyond">超越</span> <span class="xian">/</span> <span class="ziran">自然</span>
+				</div>
+				<p class="b-text">自然邂逅科技，浑然天成的相遇，防潮阻燃，抗刮耐磨，气节依旧，竹韵仍存竹、智交融触，动人心</p>
+			</div>
+		</div>
+		<!-- 独一无二 -->
+		<div class="only-scene">
+			<div class="only-title">
+				<span class="duyi">独一</span> <span class="xian"></span> <span class="wuer">无二</span>
+				<!-- <h1>独一无二</h1> -->
+			</div>
+			<div class="only-intro">
+				<div class="only-p">
+					<p>竹节、纹理，岁月绝无仅有的编排；色泽、深浅，光风雨露的自然磨砺，手握竹·智，以清凉对话掌心，顺竹之本性，造唯一绝佳体验</p>
+				</div>
+			</div>
+		</div>
+
+		<!--footer-->
+		<footer>
+			<div id="footer" class="clearfix footer">
+				<div class="container clearfix">
+					<div class="foo-service clearfix">
+						<dl>
+							<dt>帮助中心</dt>
+							<dd>
+								<a target="_blank" href="http://service.oneplus.cn/account/read/categoryId/A1000011">购物指南</a>
+							</dd>
+							<dd>
+								<a target="_blank" href="http://service.oneplus.cn/account/read/categoryId/A1000020">支付方式</a>
+							</dd>
+							<dd>
+								<a target="_blank" href="http://service.oneplus.cn/account/read/categoryId/A1000024">配送方式</a>
+							</dd>
+						</dl>
+						<dl>
+							<dt>售后服务</dt>
+							<dd>
+								<a target="_blank" href="http://service.oneplus.cn/account/read/categoryId/A1000029">三包政策</a>
+							</dd>
+							<dd>
+								<a target="_blank" href="http://service.oneplus.cn/server/shopbranch">售后网点</a>
+							</dd>
+						</dl>
+						<dl>
+							<dt>技术支持</dt>
+							<dd>
+								<a target="_blank" href="http://service.oneplus.cn/" target="_blank">一加医生</a>
+							</dd>
+							<dd>
+								<a target="_blank" href="http://service.oneplus.cn/account/read/categoryId/A1000031">产品手册</a>
+							</dd>
+							<dd>
+								<a target="_blank" href="http://service.oneplus.cn/account/read/categoryId/A1000030">软件下载</a>
+							</dd>
+						</dl>
+						<dl>
+							<dt>会员中心</dt>
+							<dd>
+								<a target="_blank" href="http://account.oneplus.cn/regist/index">会员注册</a>
+							</dd>
+							<dd>
+								<a target="_blank" href="http://account.oneplus.cn/login/index">会员登录</a>
+							</dd>
+							<dd>
+								<a target="_blank" href="http://my.oneplus.cn/">个人中心</a>
+							</dd>
+						</dl>
+						<dl>
+							<dt>关注我们</dt>
+							<dd>
+								<a href="http://weibo.com/yjservice" target="_blank" rel="nofollow">新浪微博</a>
+							</dd>
+							<dd>
+								<a href=".//statics.oneplus.cn/img/weixin.png" target="_blank" id="showWeixin">官方微信</a>
+							</dd>
+							<dd>
+								<a href="http://www.oneplus.cn/aboutus.html" target="_blank">关于我们</a>
+							</dd>
+						</dl>
+					</div>
+					<div class="foo-service-contact">
+						<p class="s-tel">
+							<span> ( 400-888-1111 ) </span> <span class="s-time">服务时段：7 x 24 仅收市话费</span>
+						</p>
+						<p class="qq-webchat">
+							<a title="在线客服" id="foo-service-chat" href="javascript:;">24小时在线客服</a>
+						</p>
+					</div>
+				</div>
+				<div class="cf container">
+					<div class="foo-copyright">ICP &copy; 2014 深圳市万普拉斯贸易有限公司 版权所有（备案号：粤ICP备13088308号-1）</div>
+				</div>
+			</div>
+		</footer>
+	</div>
+	<div id="hiddenImg" style="display: none">
+		<img src=".//statics.oneplus.cn/img/backcover/bamboo/entrance-bg.jpg" id="enterBg" alt="" />
+	</div>
+</body>
+<script type="text/javascript" src=".//statics.oneplus.cn/js/lib/jquery.bxslider.min.js"></script>
+<script type="text/javascript" src=".//statics.oneplus.cn/js/share.js"></script>
+<script type="text/javascript" src=".//statics.oneplus.cn/js/bamboo1.js"></script>
+<script type="text/javascript">
+	(function() {
+		var a = document.createElement("script");
+		a.type = "text/javascript";
+		a.async = true;
+		a.src = "./statics.oneplus.cn/js/opdoc.js";
+		var b = document.getElementsByTagName("script")[0x0];
+		b.parentNode.insertBefore(a, b)
+	})();
+	$(document).ready(function() {
+		enterPage();
+		$(".homeSlider").bxSlider({
+			mode : "fade",
+			auto : true
+		});
+	})
+</script>
+</html>
+

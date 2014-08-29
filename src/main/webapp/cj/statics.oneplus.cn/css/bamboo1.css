@@ -1,0 +1,1057 @@
+.hidden {
+	overflow: hidden;
+	width: 100%;
+	height: 100%
+}
+
+.header {
+	background: #fff
+}
+
+.play-box {
+	background: #000;
+	position: relative;
+	width: 100%;
+	height: 100%;
+	overflow: hidden
+}
+
+.load-icon {
+	background: url(../img/backcover/bamboo/bb_loading.gif);
+	width: 80px;
+	height: 90px;
+	position: absolute;
+	left: 50%;
+	margin-left: -40px;
+	top: 50%;
+	margin-top: -45px
+}
+
+.play-container {
+	display: none
+}
+
+.play-box .mask {
+	width: 100%;
+	height: 100%;
+	background: url(../img/backcover/bamboo/xx_mask.png);
+	position: absolute;
+	top: 0;
+	left: 0;
+	z-index: 1
+}
+
+.text-box {
+	position: absolute;
+	width: 244px;
+	height: 374px;
+	top: 50%;
+	left: 50%;
+	margin-top: -270px;
+	margin-left: -122px;
+	z-index: 2
+}
+
+.text-box p {
+	width: 23px;
+	height: 0;
+	margin: 0 15px;
+	background: url(../img/backcover/bamboo/text-copy.png) no-repeat;
+	text-indent: -999em;
+	overflow: hidden;
+	position: absolute;
+	opacity: 0
+}
+
+.text-box p.text1 {
+	right: 0;
+	background-position: -217px 0;
+	width: 30px
+}
+
+.text-box p.text2 {
+	right: 60px;
+	background-position: -162px 0
+}
+
+.text-box p.text3 {
+	right: 113px;
+	background-position: -107px 0
+}
+
+.text-box p.text4 {
+	right: 166px;
+	background-position: -53px 0
+}
+
+.text-box p.text5 {
+	right: 213px;
+	background-position: 0 0
+}
+
+.enter-btn {
+	position: absolute;
+	width: 60px;
+	height: 93px;
+	left: 50%;
+	margin-left: -38px;
+	top: 50%;
+	margin-top: 192px;
+	z-index: 2;
+	opacity: 0;
+	filter: alpha(opacity = 0)
+}
+
+.enter-btn img {
+	display: block
+}
+
+.bb-contain {
+	background: #f7f3e4;
+	min-width: 626px;
+	display: none
+}
+
+.top-scene {
+	padding-top: 30px
+}
+
+.zhuzhi-logo img {
+	width: 12.8%
+}
+
+.zhuzhi-price img {
+	width: 24.6%
+}
+
+.count-dowm {
+	font-size: 14px;
+	letter-spacing: .15em;
+	padding-top: 5px;
+	color: #000
+}
+
+.count-dowm .time {
+	display: inline-block;
+	width: 27px;
+	height: 27px;
+	vertical-align: middle;
+	text-align: center;
+	line-height: 27px;
+	color: #fff;
+	background-position: -184px top;
+	letter-spacing: .1em
+}
+
+.zhuzhi-price {
+	font-size: 20px;
+	color: #000;
+	letter-spacing: .4em
+}
+
+.top-btn {
+	text-align: center;
+	padding: 24px 0 0
+}
+
+.top-btn a {
+	display: inline-block;
+	width: 120px;
+	height: 30px;
+	line-height: 30px;
+	text-align: center;
+	border: 1px solid #000;
+	color: #10100f;
+	vertical-align: middle;
+	font-size: 14px;
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	transition: all .5s;
+	margin: 0 10px
+}
+
+.top-btn a.btn-gray {
+	background: #bab6b3;
+	color: #fff;
+	border-color: #bab6b3
+}
+
+.top-scene .top-btn a:hover {
+	background: #000;
+	color: #fff;
+	text-decoration: none;
+	-webkit-transition: all .5s;
+	-moz-transition: all .5s;
+	transition: all .5s
+}
+
+.top-scene .top-btn a.btn-gray:hover {
+	background: #bab6b3;
+	color: #fff;
+	border-color: #bab6b3
+}
+
+.top-btn .view-img-btn {
+	color: #0f549b;
+	font-size: 12px
+}
+
+.top-btn a:hover {
+	text-decoration: underline
+}
+
+.single-link {
+	margin-top: 6px
+}
+
+.single-link a {
+	font-size: 12px;
+	text-decoration: underline;
+	color: #727272
+}
+
+.single-link a:hover {
+	text-decoration: underline;
+	color: #eb0028
+}
+
+.nor-link {
+	margin-left: 20px
+}
+
+.top-cover {
+	padding-top: 6px;
+	position: relative;
+	z-index: 2;
+	text-align: center
+}
+
+.top-cover a {
+	cursor: url(../img/backcover/bamboo/cursor.cur), pointer
+}
+
+.top-cover img {
+	width: 15.4%;
+	_width: 293px;
+	_height: 546px
+}
+
+@media screen and (max-width:1366px) {
+	.top-title img {
+		width: 335px;
+		_width: 472px;
+		_height: 294px
+	}
+	.top-cover img {
+		width: 210px;
+		_width: 293px;
+		_height: 546px
+	}
+}
+
+.icon {
+	background: url(../img/backcover/bamboo/icon_sprite.png) no-repeat
+}
+
+.play-scene {
+	position: relative;
+	margin-top: -150px;
+	z-index: 1;
+	background: url(../img/backcover/bamboo/bb-player.jpg) center center;
+	background-size: cover;
+	padding: 15% 0
+}
+
+.play-scene .play-btn {
+	display: block;
+	width: 93px;
+	height: 93px;
+	background-position: left top;
+	text-indent: -999em;
+	overflow: hidden;
+	margin: auto;
+	animation: playbtn 1s ease-in-out alternate 1s infinite;
+	-webkit-animation: playbtn 1s ease-in-out alternate 1s infinite;
+	-o-animation: playbtn 1s ease-in-out alternate 1s infinite;
+	-moz-animation: playbtn 1s ease-in-out alternate 1s infinite
+}
+
+@
+keyframes playbtn { 0%{
+	transform: scale(0.9);
+	opacity: .7
+}
+
+100%{
+transform
+
+
+
+
+:scale(1)
+
+
+
+
+;
+opacity
+
+
+
+
+:
+
+
+
+
+1
+}
+}
+@
+-webkit-keyframes playbtn { 0%{
+	-webkit-transform: scale(0.9);
+	opacity: .7
+}
+
+100%{
+-webkit-transform
+
+
+
+
+:scale(1)
+
+
+
+
+;
+opacity
+
+
+
+
+:
+
+
+
+
+1
+}
+}
+@
+-moz-keyframes playbtn { 0%{
+	-moz-transform: scale(0.9);
+	opacity: .7
+}
+
+100%{
+-moz-transform
+
+
+
+
+:scale(1)
+
+
+
+
+;
+opacity
+
+
+
+
+:
+
+
+
+
+1
+}
+}
+@
+-o-keyframes playbtn { 0%{
+	-o-transform: scale(0.9);
+	opacity: .7
+}
+
+100%{
+-o-transform
+
+
+
+
+:scale(1)
+
+
+
+
+;
+opacity
+
+
+
+
+:
+
+
+
+
+1
+}
+}
+.nature-scene {
+	padding: 70px 0;
+	position: relative
+}
+
+.nature-bg {
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	z-index: 0
+}
+
+.nature-bg li {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	display: none
+}
+
+.nature-bg li.img1 {
+	background: url(../img/backcover/bamboo/nature-bg1.jpg) center center
+		no-repeat;
+	background-size: cover
+}
+
+.nature-bg li.img2 {
+	background: url(../img/backcover/bamboo/nature-bg2.jpg) center center
+		no-repeat;
+	background-size: cover
+}
+
+.nature-bg li.img3 {
+	background: url(../img/backcover/bamboo/nature-bg3.jpg) center center
+		no-repeat;
+	background-size: cover
+}
+
+.n-icon, .n-text-box {
+	position: relative;
+	z-index: 1
+}
+
+.n-text-box {
+	width: 198px;
+	height: 576px;
+	margin: auto;
+	position: relative
+}
+
+.n-text-white {
+	background: url(../img/backcover/bamboo/nature-text.png) left top
+		no-repeat;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-position: -203px top;
+	display: none
+}
+
+.beyond-text .b-title, .n-text-brown .n-title, .only-title {
+	width: 57px;
+	height: 162px;
+	margin: auto;
+	position: relative
+}
+
+.beyond-text .b-title span, .n-text-brown .n-title span, .only-title span
+	{
+	background: url(../img/backcover/bamboo/n-title.png);
+	display: block;
+	position: absolute;
+	left: 0;
+	width: 100%;
+	text-indent: -9999em;
+	overflow: hidden;
+	opacity: 0;
+	filter: alpha(opacity = 0)
+}
+
+.beyond-text .b-title span {
+	background: url(../img/backcover/bamboo/b-title.png)
+}
+
+.only-title span {
+	background: url(../img/backcover/bamboo/o-title.png)
+}
+
+.beyond-text .b-title .beyond, .n-text-brown .n-title .quzhi,
+	.only-title .duyi {
+	background-position: left top;
+	top: 0;
+	height: 0
+}
+
+.beyond-text .b-title .xian, .n-text-brown .n-title .xian, .only-title .xian
+	{
+	background-position: left -95px;
+	top: 54px;
+	height: 0
+}
+
+.beyond-text .b-title .ziran, .n-text-brown .n-title .ziran, .only-title .wuer
+	{
+	background-position: right -177px;
+	top: 90px;
+	height: 0
+}
+
+.n-text-brown .n-text {
+	height: 373px;
+	width: 100%;
+	position: absolute;
+	top: 233px;
+	background: url(../img/backcover/bamboo/nature-text.png) left -203px;
+	text-indent: -9999em;
+	overflow: hidden;
+	opacity: 0;
+	*left: 0;
+	*margin-top: 15px
+}
+
+.n-icon {
+	margin-top: 84px
+}
+
+.n-icon li {
+	display: inline-block;
+	*display: inline;
+	*zoom: 1;
+	width: 138px;
+	margin: 0 3.5%
+}
+
+.n-icon li i {
+	display: block;
+	width: 138px;
+	height: 138px
+}
+
+.n-icon li span {
+	display: block;
+	width: 138px;
+	height: 70px;
+	margin-top: 57px;
+	font-size: 42px;
+	color: #7e3619;
+	-webkit-font-smoothing: antialiased;
+	font-family: 'Segoe UI', sans-serif;
+	*line-height: .8
+}
+
+.n-icon .grow-time i {
+	background-position: -2px -318px
+}
+
+.n-icon .grow-time span {
+	background-position: -2px -472px
+}
+
+.n-icon .joint-num i {
+	background-position: -150px -318px
+}
+
+.n-icon .joint-num span {
+	background-position: -150px -472px
+}
+
+.n-icon .process-num i {
+	background-position: -297px -318px
+}
+
+.n-icon .process-num span {
+	background-position: -297px -472px
+}
+
+.beyond-scene {
+	position: relative;
+	height: 909px
+}
+
+.beyond-img {
+	position: absolute;
+	z-index: 1;
+	text-align: center;
+	width: 100%;
+	left: 0
+}
+
+.beyond-img img {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%
+}
+
+.beyond-img li {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 909px;
+	_left: -50%
+}
+
+.banner {
+	-webkit-transform: scale(1.05);
+	-moz-transform: scale(1.05);
+	transform: scale(1.05)
+}
+
+.scale {
+	-webkit-transform: scale(1);
+	-moz-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: -webkit-transform 5s linear;
+	-moz-transition: -moz-transform 5s linear;
+	transition: transform 5s linear
+}
+
+.beyond-img-con .img-control {
+	position: absolute;
+	z-index: 2;
+	right: 50px;
+	top: 50%;
+	margin-top: -24px;
+	width: 10px;
+	text-align: center
+}
+
+.beyond-img-con .img-control a {
+	display: block;
+	border: 1px solid #412c18;
+	background: 0 0;
+	width: 9px;
+	height: 9px;
+	border-radius: 50%;
+	text-indent: -9999em;
+	overflow: hidden;
+	margin: 15px 0;
+	margin-left: 0
+}
+
+.beyond-img-con .img-control a.active {
+	width: 7px;
+	height: 7px;
+	background: #412c18;
+	margin-left: 2px
+}
+
+.beyond-text {
+	width: 312px;
+	height: 524px;
+	position: relative;
+	z-index: 2;
+	margin: 0 auto;
+	top: 132px
+}
+
+.beyond-text .b-text {
+	height: 267px;
+	width: 100%;
+	position: absolute;
+	top: 257px;
+	background: url(../img/backcover/bamboo/beyond-text.png) left -257px;
+	text-indent: -9999em;
+	overflow: hidden;
+	opacity: 0;
+	*left: 0
+}
+
+.only-title {
+	margin: 4% auto
+}
+
+.only-intro {
+	background: url(../img/backcover/bamboo/only-img.jpg) center center
+		no-repeat;
+	background-size: cover;
+	padding: 11% 0
+}
+
+.only-intro .only-p {
+	width: 312px;
+	height: 392px;
+	background: url(../img/backcover/bamboo/only-text.png) left -205px;
+	margin: 0 auto;
+	text-indent: -9999em;
+	overflow: hidden;
+	opacity: 0;
+	margin-top: 20px
+}
+
+.weibo-share {
+	background: url(../img/backcover/bamboo/line-bg.png) bottom center
+		no-repeat;
+	padding: 80px 0
+}
+
+.weibo-share a {
+	display: inline-block;
+	width: 43px;
+	height: 34px;
+	background-position: -117px top
+}
+
+.bamboo-foo {
+	padding-top: 74px
+}
+
+.config-list {
+	margin: 0 auto;
+	padding-right: 26px;
+	max-width: 624px;
+	_width: 624px
+}
+
+.config-list li {
+	display: inline-block;
+	*display: inline;
+	zoom: 1;
+	width: 152px;
+	text-align: center;
+	margin-bottom: 48px
+}
+
+.config-list li span {
+	display: block;
+	padding-top: 20px
+}
+
+.config-list li .icon {
+	display: inline-block;
+	width: 102px;
+	height: 102px
+}
+
+.config-list li .cpu {
+	background-position: -2px -105px
+}
+
+.config-list li .ram {
+	background-position: -108px -105px
+}
+
+.config-list li .speaker {
+	background-position: -213px -105px
+}
+
+.config-list li .screen {
+	background-position: -318px -105px
+}
+
+.config-list li .lte {
+	background-position: -2px -210px
+}
+
+.config-list li .camera {
+	background-position: -108px -210px
+}
+
+.config-list li .battery {
+	background-position: -213px -210px
+}
+
+.config-list li .lens {
+	background-position: -318px -210px
+}
+
+@media screen and (max-width:668px) {
+	.config-list {
+		_width: 100%
+	}
+}
+
+@media screen and (max-width:935px) {
+	.bb-cover-show .bb-control-btn .bx-prev {
+		left: 0;
+		margin-left: 0
+	}
+	.bb-cover-show .bb-control-btn .bx-next {
+		right: 0;
+		margin-right: 0
+	}
+}
+
+.intro-video {
+	width: 850px;
+	height: 480px;
+	position: absolute;
+	left: 50%;
+	margin-left: -425px;
+	top: 50%;
+	margin-top: -240px;
+	text-align: center
+}
+
+.intro-video .intro-player {
+	width: 850px;
+	height: 480px
+}
+
+.back-btn {
+	position: fixed;
+	_position: absolute;
+	top: 24px;
+	right: 30px;
+	z-index: 3;
+	display: none;
+	font-size: 12px
+}
+
+.back-btn a:hover {
+	color: #84827a;
+	text-decoration: underline
+}
+
+.bamboo-foo {
+	background: #fefcf5
+}
+
+.footer {
+	background: #fff;
+	margin-top: 0;
+	padding-top: 50px
+}
+
+.bb-win {
+	background: #fff;
+	position: fixed;
+	top: 0;
+	left: 0;
+	z-index: 1988;
+	width: 100%;
+	height: 100%;
+	display: none;
+	_position: absolute;
+	_bottom: auto;
+	_top: expression(eval(document.documentElement.scrollTop))
+}
+
+.bb-win .bb-win-btn {
+	position: absolute;
+	top: 40px;
+	right: 40px
+}
+
+.bb-win .bb-win-btn a {
+	display: block;
+	background: url(../img/backcover/bamboo/icon_sprite.png) -332px top
+		no-repeat;
+	width: 35px;
+	height: 36px;
+	text-indent: -9999em;
+	overflow: hidden
+}
+
+.bb-cover-show .bb-cover-con {
+	width: 627px;
+	height: 730px;
+	position: absolute;
+	top: 50%;
+	margin-top: -365px;
+	left: 50%;
+	margin-left: -312px
+}
+
+.bb-cover-show .bb-cover-con li {
+	*left: 0;
+	_left: 314px
+}
+
+.bb-cover-show .bb-control-btn a {
+	display: block;
+	width: 34px;
+	height: 65px;
+	background: url(../img/backcover/bamboo/icon_sprite.png);
+	text-indent: -9999em;
+	overflow: hidden;
+	position: absolute;
+	top: 50%;
+	margin-top: -32px;
+	z-index: 100
+}
+
+.bb-cover-show .bb-control-btn .bx-prev {
+	background-position: -367px top;
+	left: 50%;
+	margin-left: -473px
+}
+
+.bb-cover-show .bb-control-btn .bx-next {
+	background-position: -402px top;
+	right: 50%;
+	margin-right: -473px
+}
+
+.pop-default .pop-content {
+	overflow: hidden
+}
+
+.set-remind-pop.pop-default .pop-win {
+	background: #f7f3e4
+}
+
+.set-remind-pop .pop-win {
+	border: 1px solid #412c18
+}
+
+.set-remind-pop .pop-layout .pop-title {
+	border-bottom: 1px solid #412c18
+}
+
+.set-remind-pop .pop-title strong {
+	font-weight: 400;
+	font-size: 18px;
+	color: #291a0c
+}
+
+.remind-way {
+	padding-top: 80px;
+	overflow: hidden
+}
+
+.remind-way div {
+	width: 50%;
+	float: left;
+	text-align: center
+}
+
+.remind-way .meg-remind span {
+	border-right: 1px solid #140d07
+}
+
+.remind-way span {
+	display: block;
+	padding: 26px 0
+}
+
+.remind-way a {
+	display: inline-block;
+	width: 80px;
+	height: 83px
+}
+
+.remind-way .meg-remind a {
+	background-position: 0 -545px
+}
+
+.remind-way .meg-remind a:hover {
+	background-position: -81px -545px
+}
+
+.remind-way .qq-remind a {
+	background-position: -167px -545px
+}
+
+.remind-way .qq-remind a:hover {
+	background-position: -250px -545px
+}
+
+.set-remind-form {
+	color: #140d07;
+	font-size: 14px;
+	text-align: left;
+	padding-left: 120px;
+	margin-top: 30px
+}
+
+.set-remind-form label {
+	display: inline-block;
+	width: 100px
+}
+
+.set-remind-form .block {
+	margin-bottom: 30px
+}
+
+.set-remind-form input {
+	background: #f7f3e4;
+	border: 1px solid #412c18;
+	width: 133px;
+	height: 23px;
+	padding: 5px 2px;
+	vertical-align: middle
+}
+
+.set-remind-form input:focus {
+	outline: 0
+}
+
+.set-remind-form input#tel {
+	width: 248px
+}
+
+.set-remind-form .get-code-btn, .set-remind-form .submit-btn button,
+	.set-remind-pop .suc-btn {
+	width: 90px;
+	height: 35px;
+	border: 1px solid #412c18;
+	text-align: center;
+	line-height: 35px;
+	vertical-align: middle;
+	background: #f7f3e4;
+	margin-left: 17px;
+	display: inline-block
+}
+
+.set-remind-form img {
+	margin-left: 17px;
+	vertical-align: middle;
+	cursor: pointer
+}
+
+.set-remind-form .submit-btn {
+	margin-left: 100px
+}
+
+.set-remind-form .submit-btn button {
+	margin-left: 0
+}
+
+.set-remind-pop .suc-btn {
+	margin-left: 0;
+	cursor: pointer;
+	font-size: 14px
+}
+
+.set-remind-form .warm-tip {
+	color: #74736f;
+	font-size: 12px
+}
+
+.set-remind-form .error-tip {
+	font-size: 12px;
+	color: #eb0028;
+	padding-left: 10px
+}
+
+.set-remind-pop .suc-tips {
+	margin: 70px;
+	line-height: 36px
+}
+
+.get-code-btn.disable-btn, .submit-btn.disable-btn {
+	cursor: default;
+	color: #666;
+	background: #ddd;
+	border-color: #ddd
+}
