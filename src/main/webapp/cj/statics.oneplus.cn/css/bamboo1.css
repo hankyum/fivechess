@@ -255,7 +255,7 @@
 
 .play-scene {
 	position: relative;
-	margin-top: -150px;
+	margin-top: -75px;
 	z-index: 1;
 	background: url(../img/backcover/bamboo/bb-player.jpg) center center;
 	background-size: cover;
@@ -288,7 +288,11 @@ transform
 
 
 
+
+
 :scale(1)
+
+
 
 
 
@@ -299,7 +303,11 @@ opacity
 
 
 
+
+
 :
+
+
 
 
 
@@ -319,7 +327,11 @@ opacity
 
 
 
+
+
 :scale(1)
+
+
 
 
 
@@ -330,7 +342,11 @@ opacity
 
 
 
+
+
 :
+
+
 
 
 
@@ -350,7 +366,11 @@ opacity
 
 
 
+
+
 :scale(1)
+
+
 
 
 
@@ -361,7 +381,11 @@ opacity
 
 
 
+
+
 :
+
+
 
 
 
@@ -381,7 +405,11 @@ opacity
 
 
 
+
+
 :scale(1)
+
+
 
 
 
@@ -392,7 +420,11 @@ opacity
 
 
 
+
+
 :
+
+
 
 
 
