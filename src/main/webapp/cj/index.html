@@ -346,7 +346,9 @@
 			b.parentNode.insertBefore(a, b)
 		})();
 		$(document).ready(function() {
-			enterPage();
+			if (document.location.hostname == '127.0.0.1') {
+				enterPage();
+			}
 			$(".homeSlider").bxSlider({
 				mode : "fade",
 				auto : true
