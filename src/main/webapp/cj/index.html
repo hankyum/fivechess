@@ -152,20 +152,22 @@
 		<!-- 			</div> -->
 		<!-- 		</div> -->
 		<!--图片展示-->
-		<ul class="homeSlider">
-			<li>
-				<img src=".//statics.oneplus.cn/img/backcover/bamboo/covershow-img-1.jpg" alt="">
-			</li>
-			<li>
-				<img src=".//statics.oneplus.cn/img/backcover/bamboo/covershow-img-2.jpg" alt="">
-			</li>
-			<li>
-				<img src=".//statics.oneplus.cn/img/backcover/bamboo/covershow-img-3.jpg" alt="">
-			</li>
-			<li>
-				<img src=".//statics.oneplus.cn/img/backcover/bamboo/covershow-img-4.jpg" alt="">
-			</li>
-		</ul>
+		<div>
+			<ul class="homeSlider">
+				<li>
+					<img src=".//statics.oneplus.cn/img/backcover/bamboo/covershow-img-1.jpg" alt="">
+				</li>
+				<li>
+					<img src=".//statics.oneplus.cn/img/backcover/bamboo/covershow-img-2.jpg" alt="">
+				</li>
+				<li>
+					<img src=".//statics.oneplus.cn/img/backcover/bamboo/covershow-img-3.jpg" alt="">
+				</li>
+				<li>
+					<img src=".//statics.oneplus.cn/img/backcover/bamboo/covershow-img-4.jpg" alt="">
+				</li>
+			</ul>
+		</div>
 		<div class="play-scene">
 			<a href="javascript:;" class="icon play-btn" id="playBtn">播放视频</a>
 		</div>
@@ -200,7 +202,7 @@
 			</div>
 		</div>
 		<!-- 超越自然 -->
-		<div class="beyond-scene" style="margin:0; padding:0">
+		<div class="beyond-scene" style="margin: 0; padding: 0">
 			<div class="beyond-img-con">
 				<div class="beyond-img">
 					<ul class="bannerSlider">
@@ -322,26 +324,43 @@
 	<div id="hiddenImg" style="display: none">
 		<img src=".//statics.oneplus.cn/img/backcover/bamboo/entrance-bg.jpg" id="enterBg" alt="" />
 	</div>
-</body>
-<script type="text/javascript" src=".//statics.oneplus.cn/js/lib/jquery.bxslider.min.js"></script>
-<script type="text/javascript" src=".//statics.oneplus.cn/js/share.js"></script>
-<script type="text/javascript" src=".//statics.oneplus.cn/js/bamboo1.js"></script>
-<script type="text/javascript">
-	(function() {
-		var a = document.createElement("script");
-		a.type = "text/javascript";
-		a.async = true;
-		a.src = "./statics.oneplus.cn/js/opdoc.js";
-		var b = document.getElementsByTagName("script")[0x0];
-		b.parentNode.insertBefore(a, b)
-	})();
-	$(document).ready(function() {
-		enterPage();
-		$(".homeSlider").bxSlider({
-			mode : "fade",
-			auto : true
+	<!--观看视频-->
+	<div class="bb-win" id="introVideo">
+		<div class="intro-video" id="playBox">
+			<embed src="./player.youku.com/player.php/sid/XNzQzOTIxNDQw/v.swf" allowFullScreen="true" quality="high" width="850" height="480" align="middle" allowScriptAccess="always" type="application/x-shockwave-flash"></embed>
+		</div>
+		<div class="bb-win-btn" id="bb_player_btn">
+			<a href="javascript:;" title="关闭">关闭</a>
+		</div>
+	</div>
+	<script type="text/javascript" src=".//statics.oneplus.cn/js/lib/jquery.bxslider.min.js"></script>
+	<script type="text/javascript" src=".//statics.oneplus.cn/js/share.js"></script>
+	<script type="text/javascript" src=".//statics.oneplus.cn/js/bamboo1.js"></script>
+	<script type="text/javascript">
+		(function() {
+			var a = document.createElement("script");
+			a.type = "text/javascript";
+			a.async = true;
+			a.src = "./statics.oneplus.cn/js/opdoc.js";
+			var b = document.getElementsByTagName("script")[0x0];
+			b.parentNode.insertBefore(a, b)
+		})();
+		$(document).ready(function() {
+			enterPage();
+			$(".homeSlider").bxSlider({
+				mode : "fade",
+				auto : true
+			});
+		})
+	</script>
+	<script type="text/javascript" src="http://player.youku.com/jsapi">
+		player = new YKU.Player('playBox', {
+			styleid : '0',
+			client_id : 'ebab0e7d5e04b44d',
+			vid : 'XNzQ0MDk3ODY0',
+			autoplay : true
 		});
-	})
-</script>
+	</script>
+</body>
 </html>
 
