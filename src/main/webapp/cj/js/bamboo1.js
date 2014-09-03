@@ -33,6 +33,14 @@ function showText() {
 	}, 2e3)
 }
 function enterPage() {
+	$("#play_con").slideUp(800, function () {
+		$(this).remove();
+		var a = $(".header").height(),
+		b = setInterval(function () {
+				var c = $(window).scrollTop();
+				a > c ? $(window).scrollTop(c += 1) : clearInterval(b)
+			}, 1)
+	}),
 	$("html,body").removeClass("hidden"),
 	$("#b_con").show(),
 	$(".beyond-img ul").bxSlider({
@@ -50,11 +58,17 @@ function enterPage() {
 			$(a).find(".banner").addClass("scale")
 		}
 	}),
- $("html,body").removeClass("hidden")
+	$(".homeSlider").bxSlider({
+		pager : false,
+		mode : "fade",
+		auto : true
+	})
 }
 function noVideo() {
+	$("#playCon").html($("#hiddenImg").html()),
 	$("#enterBg")[0].onload = function () {
 		$("#loading").hide(),
+		$("#playCon").fadeIn(),
 		showText();
 		var a = $("#enterBg").width(),
 		b = $("#enterBg").height();
@@ -193,6 +207,25 @@ $(function () {
 					opacity : 1
 				}, 1e3))
 		}), hasVieo) {
+		var d = $("#zplayer")[0],
+		e = setInterval(function () {
+				if (d.readyState > 1) {
+					clearInterval(e),
+					$("#loading").hide(),
+					$(".play-container").fadeIn(),
+					d.play(),
+					showText();
+					var a = $("#zplayer").width(),
+					b = $("#zplayer").height();
+					reSize(a, b, "#zplayer"),
+					$(window).resize(function () {
+						reSize(a, b, "#zplayer")
+					})
+				}
+			}, 100);
+		d.addEventListener("ended", function () {
+			setTimeout(enterPage, 500)
+		})
 	} else
 		noVideo();
 	$("#enterBtn").click(function () {
@@ -338,17 +371,5 @@ $(function () {
 		b = "http://qzs.qq.com/snsapp/app/bee/widget/open.htm#content=" + encodeURIComponent(a.content) + "&time=" + encodeURIComponent(a.time) + "&advance=" + a.advance + "&url=" + encodeURIComponent(a.url),
 		c = '<iframe width="580px" height="460px" style="margin-top: -85px;" frameborder="0" scrolling="no" src="' + b + '" allowtransparency="true"></iframe>';
 		qqPop.text("", !0, c, "", "", "", !1, !1, !0, 670, 420)
-	}),
-	$.ajax({
-		url : _GLOBAL_CONFIG.ajaxOyTime,
-		type : "GET",
-		data : {
-			format : "json"
-		},
-		dataType : "jsonp",
-		jsonp : "success_jsonpCallback",
-		jsonpCallback : "success_jsonpCallback"
-	}).done(function (a) {
-		return 1 !== a.ret ? void window.pop.alert(a.errMsg) : (op.zhuzhi.end = a.data.timeStart, op.zhuzhi.serverDate = a.data.timeNow, op.zhuzhi.duration = getDuration(op.zhuzhi.serverDate), op.zhuzhi.state = a.data.state, op.zhuzhi.elm = $("#b_con .count-dowm"), void remainTime())
 	})
 });

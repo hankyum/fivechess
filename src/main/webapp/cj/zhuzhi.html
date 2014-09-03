@@ -3,13 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <title>一加手机竹质限量版 生而唯一，给独一无二的你</title>
-<meta content="一加手机,一加手机竹质后盖,竹智,竹质,竹子,足智多谋,竹质手机2499.99元" name="keyword" />
+<meta content="一加手机,一加手机竹质后盖,竹智,竹质,竹子,足智多谋,竹质手机2499.99元" name="keyword"/>
 <meta content="一加手机,一加手机竹质后盖,竹智,竹质,竹子,足智多谋,竹质手机2499.99元，包括详细介绍及图片" name="description">
 <link rel="shortcut icon" href="./img/oneplus.ico" type="image/x-icon">
-<link rel="stylesheet" type="text/css" href="./css/jquery.bxslider.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="./css/init.css" media="screen" />
 <link rel="stylesheet" type="text/css" href="./css/common.css" media="screen" />
-<link rel="stylesheet" type="text/css" href="./css/bamboo1.css" media="screen" />
+<link rel="stylesheet" type="text/css" href="./css/bamboo.css" media="screen" />
 
 <script type="text/javascript" src="./js/lib/jquery-1.9.1.js"></script>
 <script type="text/javascript" src="./js/lib/respond.min.js"></script>
@@ -26,7 +25,14 @@
         </script>
 
     <![endif]-->
-<script type="text/javascript">
+<script>
+	//判断是否为移动设备，如果是跳转到移动版
+	var browser = navigator.userAgent;
+	//         if(browser.indexOf('iPhone') > -1 || browser.indexOf('iPad') > -1||browser.indexOf('Android') >=0){ 
+	//             window.location.href = "http://wx.oneplus.cn/weixin/slot/zhuzhi";
+	//         }
+
+	//document.domain = 'oneplus.cn';
 	var _GLOBAL_CONFIG = {
 		'loginUrl' : 'http://account.oneplus.cn/login/poplogin',
 		'bbsShareUrl' : 'http://www.oneplusbbs.com/api/share.php',
@@ -54,10 +60,10 @@
 	<div class="play-box" id="play_con">
 		<div class="load-icon" id="loading"></div>
 		<div class="play-container" id="playCon">
-			<video class="play" id="zplayer" autoplay="autoplay">
-				<source src="http://statics.oneplus.cn/img/backcover/bamboo/backvideo.mp4?v=20140807" />
-				<source src="http://statics.oneplus.cn/img/backcover/bamboo/backvideo.webm?v=20140807" />
-				<source src="http://statics.oneplus.cn/img/backcover/bamboo/backvideo.ogv?v=20140807" />
+			<video class="play" id="zplayer" autoplay="autoplay" >
+				<source src="http://statics.oneplus.cn/img/backcover/bamboo/backvideo.mp4?v=20140807"/>
+				<source src="http://statics.oneplus.cn/img/backcover/bamboo/backvideo.webm?v=20140807"/>
+				<source src="http://statics.oneplus.cn/img/backcover/bamboo/backvideo.ogv?v=20140807"/>
 				<ins>您的浏览器不支持视频，建议升级或安装 chrome 浏览器</ins>
 			</video>
 			<div class="mask"></div>
@@ -115,41 +121,26 @@
 			</div>
 		</header>
 		<!--顶导结束-->
-		<!-- 		<div class="top-scene"> -->
-		<!-- 			<div class="zhuzhi-logo"> -->
-		<!-- 				<img alt="" src="./img/backcover/bamboo/top-logo-1.png"> -->
-		<!-- 			</div> -->
-		<!-- 			<div class="count-dowm"> -->
-		<!-- 				距8月25日十点开售 还有 <span class="icon time"></span> <span id="unit">天</span> -->
-		<!-- 			</div> -->
-		<!-- 			<div class="zhuzhi-price"> -->
-		<!-- 				<img alt="" src="./img/backcover/bamboo/top-price-1.png"> -->
-		<!-- 			</div> -->
-		<!-- 			<div class="top-btn"> -->
-		<!-- 				<a id="setRemind" href="javascript:;">开抢提醒</a> -->
-		<!-- 			</div> -->
-		<!-- 			<p class="single-link"> -->
-		<!-- 				<a href="zhuzhihougai.html" target="_blank">竹质后盖单独购买&gt;</a> <a class="nor-link" href="http://www.oneplus.cn/items/0101010601" target="_blank">16GB白色现货购买&gt;</a> -->
-		<!-- 			</p> -->
-		<!-- 			<div class="top-cover"> -->
-		<!-- 				<a id="openCoverBtn" href="javascript:;"><img title="查看细节图" alt="查看细节图" src="./img/backcover/bamboo/back-1.png"></a> -->
-		<!-- 			</div> -->
-		<!-- 		</div> -->
-		<!--图片展示-->
-		<ul class="homeSlider">
-			<li>
-				<img src="./img/backcover/bamboo/covershow-img-1.jpg" alt="">
-			</li>
-			<li>
-				<img src="./img/backcover/bamboo/covershow-img-2.jpg" alt="">
-			</li>
-			<li>
-				<img src="./img/backcover/bamboo/covershow-img-3.jpg" alt="">
-			</li>
-			<li>
-				<img src="./img/backcover/bamboo/covershow-img-4.jpg" alt="">
-			</li>
-		</ul>
+		<div class="top-scene">
+			<div class="zhuzhi-logo">
+				<img alt="" src="./img/backcover/bamboo/top-logo-1.png">
+			</div>
+			<div class="count-dowm">
+				距8月25日十点开售 还有 <span class="icon time"></span> <span id="unit">天</span>
+			</div>
+			<div class="zhuzhi-price">
+				<img alt="" src="./img/backcover/bamboo/top-price-1.png">
+			</div>
+			<div class="top-btn">
+				<a id="setRemind" href="javascript:;">开抢提醒</a>
+			</div>
+			<p class="single-link">
+				<a href="zhuzhihougai.html" target="_blank">竹质后盖单独购买&gt;</a> <a class="nor-link" href="http://www.oneplus.cn/items/0101010601" target="_blank">16GB白色现货购买&gt;</a>
+			</p>
+			<div class="top-cover">
+				<a id="openCoverBtn" href="javascript:;"><img title="查看细节图" alt="查看细节图" src="./img/backcover/bamboo/back-1.png"></a>
+			</div>
+		</div>
 		<div class="play-scene">
 			<a href="javascript:;" class="icon play-btn" id="playBtn">播放视频</a>
 		</div>
@@ -187,7 +178,7 @@
 		<div class="beyond-scene">
 			<div class="beyond-img-con">
 				<div class="beyond-img">
-					<ul class="bxSlider">
+					<ul>
 						<li>
 							<img src="./img/backcover/bamboo/beyond-img2.jpg" class="banner" alt="一加手机">
 						</li>
@@ -224,6 +215,7 @@
 				</div>
 			</div>
 		</div>
+
 		<!--footer-->
 		<footer>
 			<div id="footer" class="clearfix footer">
@@ -302,8 +294,34 @@
 			</div>
 		</footer>
 	</div>
+
 	<div id="hiddenImg" style="display: none">
 		<img src="./img/backcover/bamboo/entrance-bg.jpg" id="enterBg" alt="" />
+	</div>
+	<!--图片展示-->
+	<div class="bb-win bb-cover-show" id="coverWin">
+		<div class="bb-cover-con">
+			<ul class="bb-bxslider" id="coverShow">
+				<li>
+					<img src="./img/backcover/bamboo/covershow-img-1.jpg" alt="">
+				</li>
+				<li>
+					<img src="./img/backcover/bamboo/covershow-img-2.jpg" alt="">
+				</li>
+				<li>
+					<img src="./img/backcover/bamboo/covershow-img-3.jpg" alt="">
+				</li>
+				<li>
+					<img src="./img/backcover/bamboo/covershow-img-4.jpg" alt="">
+				</li>
+			</ul>
+		</div>
+		<div class="bb-control-btn">
+			<span class="bb-prev-btn" title="上一张"></span> <span class="bb-next-btn" title="下一张"></span>
+		</div>
+		<div class="bb-win-btn" id="bb_cover_btn">
+			<a href="javascript:;" title="关闭">关闭</a>
+		</div>
 	</div>
 	<!--观看视频-->
 	<div class="bb-win" id="introVideo">
@@ -316,16 +334,16 @@
 	</div>
 	<script type="text/javascript" src="./js/lib/jquery.bxslider.min.js"></script>
 	<script type="text/javascript" src="./js/share.js"></script>
-	<script type="text/javascript" src="./js/bamboo1.js"></script>
+	<script type="text/javascript" src="./js/bamboo.js"></script>
 	<script type="text/javascript">
-		/* (function() {
+		(function() {
 			var a = document.createElement("script");
 			a.type = "text/javascript";
 			a.async = true;
 			a.src = "./js/opdoc.js";
 			var b = document.getElementsByTagName("script")[0x0];
 			b.parentNode.insertBefore(a, b)
-		})(); */
+		})();
 	</script>
 	<script type="text/javascript" src="http://player.youku.com/jsapi">
 		player = new YKU.Player('playBox', {
@@ -337,4 +355,3 @@
 	</script>
 </body>
 </html>
-
